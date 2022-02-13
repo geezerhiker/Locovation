@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		6130864C27B8829C006B0431 /* LocovationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130864B27B8829C006B0431 /* LocovationApp.swift */; };
-		6130864E27B8829C006B0431 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130864D27B8829C006B0431 /* ContentView.swift */; };
 		6130865027B882A5006B0431 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6130864F27B882A5006B0431 /* Assets.xcassets */; };
 		6130865327B882A5006B0431 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6130865227B882A5006B0431 /* Preview Assets.xcassets */; };
 		6130865E27B882A6006B0431 /* LocovationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130865D27B882A6006B0431 /* LocovationTests.swift */; };
 		6130866927B882A6006B0431 /* LocovationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130866827B882A6006B0431 /* LocovationUITests.swift */; };
+		6130868927B88396006B0431 /* ElevationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130868527B88395006B0431 /* ElevationViews.swift */; };
+		6130868A27B88396006B0431 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130868627B88395006B0431 /* ContentView.swift */; };
+		6130868B27B88396006B0431 /* LocationViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130868727B88395006B0431 /* LocationViews.swift */; };
+		6130868C27B88396006B0431 /* AccessoryViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130868827B88396006B0431 /* AccessoryViews.swift */; };
+		6130869227B883AC006B0431 /* ElevationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130869027B883AC006B0431 /* ElevationViewModel.swift */; };
+		6130869327B883AC006B0431 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6130869127B883AC006B0431 /* LocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,7 +40,6 @@
 /* Begin PBXFileReference section */
 		6130864827B8829C006B0431 /* Locovation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Locovation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6130864B27B8829C006B0431 /* LocovationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocovationApp.swift; sourceTree = "<group>"; };
-		6130864D27B8829C006B0431 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		6130864F27B882A5006B0431 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6130865227B882A5006B0431 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		6130865427B882A5006B0431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -45,6 +49,12 @@
 		6130866427B882A6006B0431 /* LocovationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LocovationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6130866827B882A6006B0431 /* LocovationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocovationUITests.swift; sourceTree = "<group>"; };
 		6130866A27B882A6006B0431 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6130868527B88395006B0431 /* ElevationViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElevationViews.swift; sourceTree = "<group>"; };
+		6130868627B88395006B0431 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6130868727B88395006B0431 /* LocationViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViews.swift; sourceTree = "<group>"; };
+		6130868827B88396006B0431 /* AccessoryViews.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryViews.swift; sourceTree = "<group>"; };
+		6130869027B883AC006B0431 /* ElevationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElevationViewModel.swift; sourceTree = "<group>"; };
+		6130869127B883AC006B0431 /* LocationViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +105,9 @@
 		6130864A27B8829C006B0431 /* Locovation */ = {
 			isa = PBXGroup;
 			children = (
-				6130864B27B8829C006B0431 /* LocovationApp.swift */,
-				6130864D27B8829C006B0431 /* ContentView.swift */,
-				6130864F27B882A5006B0431 /* Assets.xcassets */,
-				6130865427B882A5006B0431 /* Info.plist */,
+				6130867927B882C5006B0431 /* App */,
+				6130867E27B882F4006B0431 /* Models */,
+				6130867A27B882E2006B0431 /* Views */,
 				6130865127B882A5006B0431 /* Preview Content */,
 			);
 			path = Locovation;
@@ -128,6 +137,36 @@
 				6130866A27B882A6006B0431 /* Info.plist */,
 			);
 			path = LocovationUITests;
+			sourceTree = "<group>";
+		};
+		6130867927B882C5006B0431 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6130864B27B8829C006B0431 /* LocovationApp.swift */,
+				6130865427B882A5006B0431 /* Info.plist */,
+				6130864F27B882A5006B0431 /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6130867A27B882E2006B0431 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				6130868627B88395006B0431 /* ContentView.swift */,
+				6130868827B88396006B0431 /* AccessoryViews.swift */,
+				6130868527B88395006B0431 /* ElevationViews.swift */,
+				6130868727B88395006B0431 /* LocationViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6130867E27B882F4006B0431 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6130869027B883AC006B0431 /* ElevationViewModel.swift */,
+				6130869127B883AC006B0431 /* LocationViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +298,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6130864E27B8829C006B0431 /* ContentView.swift in Sources */,
+				6130868927B88396006B0431 /* ElevationViews.swift in Sources */,
+				6130868B27B88396006B0431 /* LocationViews.swift in Sources */,
+				6130869227B883AC006B0431 /* ElevationViewModel.swift in Sources */,
+				6130868C27B88396006B0431 /* AccessoryViews.swift in Sources */,
+				6130869327B883AC006B0431 /* LocationViewModel.swift in Sources */,
 				6130864C27B8829C006B0431 /* LocovationApp.swift in Sources */,
+				6130868A27B88396006B0431 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,15 +462,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Locovation/Preview Content\"";
 				DEVELOPMENT_TEAM = P2F5S5QNC3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Locovation/Info.plist;
+				INFOPLIST_FILE = Locovation/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.geezerhiker.Locovation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -440,15 +486,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Locovation/Preview Content\"";
 				DEVELOPMENT_TEAM = P2F5S5QNC3;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Locovation/Info.plist;
+				INFOPLIST_FILE = Locovation/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.geezerhiker.Locovation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
