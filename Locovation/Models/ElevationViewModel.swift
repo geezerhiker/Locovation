@@ -10,58 +10,67 @@ import CoreMotion
 import CoreLocation
 
 class ElevationViewModel: CMAltimeter, ObservableObject {
-  @Published var altitude: CLLocationDistance
+  @Published var elevation: CLLocationDistance
   
-  //    private let elevationManager: CMAltimeter
+  private var locationModel: LocationViewModel?
+  private var relativeAltitude: CLLocationDistance
+  private var baseElevation: CLLocationDistance
   
-  override init() {
-    
-    altitude = 0
-    //start up elevation updates
+  init(at elevation: CLLocationDistance, in model: LocationViewModel) {
+    locationModel = model
+    self.elevation = elevation
+    baseElevation = elevation
+    relativeAltitude = 0.0
     super.init()
+    start()
   }
+  
+  var isReady = false
   var altimeterCount: Int = 0
   var cmAltimeter: CMAltimeter = CMAltimeter()
   
-  var max = 0.0, min = 0.0, gain = 0.0, loss = 0.0
+  var maximum = 0.0, minimum = 0.0, gain = 0.0, loss = 0.0
   var delta = 0.0
-      
+  var maxString: String {
+    String(String(maximum * 100).prefix(6))
+  }
+  var minString: String {
+    String(String(minimum * 100).prefix(6))
+  }
+
 //  mutating
-  func update() {
-//        print("update \(max)")
-      max += 2.0
-      self.altimeterCount += 1
+  func update(with newAltitude: CLLocationDistance) {
+    altimeterCount += 1
+    maximum = max(maximum, newAltitude)
+    minimum = min(minimum, newAltitude)
+    let diff = newAltitude - relativeAltitude
+    if diff > 0.0 {
+      gain += diff
+    } else {
+      loss -= diff
+    }
+    relativeAltitude = newAltitude
+    elevation = relativeAltitude + baseElevation
+    locationModel?.adjustedElevation = elevation
+    debugPrint("elev upgrade \(relativeAltitude), \(elevation)")
   }
   
 //  mutating
-  func startUp() {
-      min -= 10.0
+  func start() {
+//    self.baseElevation = elevation
+    //start elevation updates
+    if CMAltimeter.isRelativeAltitudeAvailable() {
+      self.startRelativeAltitudeUpdates(to: OperationQueue.main) { [self] altitudeData, error in
+        guard let altitudeData = altitudeData else {
+          debugPrint(error! as NSError)
+          return
+        }
+        let newAltitude = CLLocationDistance(truncating: altitudeData.relativeAltitude)
+        DispatchQueue.main.async {
+          update(with: newAltitude)
+        }
+      }
+    }
   }
 
 }
-
-
-
-/*
-struct Altimeter {
-//class Altimeter {
-    
-//    @Binding
-    var altimeterCount: Int = 0
-    var cmAltimeter: CMAltimeter = CMAltimeter()
-    
-    var max = 0.0, min = 0.0, gain = 0.0, loss = 0.0
-    var delta = 0.0
-        
-    mutating
-    func update() {
-//        print("update \(max)")
-        max += 2.0
-        self.altimeterCount += 1
-    }
-    
-    mutating func startUp() {
-        min -= 10.0
-    }
-}
- */

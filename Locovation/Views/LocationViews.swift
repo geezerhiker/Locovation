@@ -29,20 +29,22 @@ struct TrackingView: View {
           rightText: String(String(locationViewModel.lastSeenLocation?.altitude ?? 0).prefix(8))
         )
         
-        ElevationStudyView(elevation: elevationViewModel)
+        ElevationStudyView()
+          .environmentObject(locationViewModel)
+//          .environmentObject(elevationViewModel)
         
         PairView(
           leftText: "Speed:",
           rightText: String(String(locationViewModel.lastSeenLocation?.speed ?? 0).prefix(6))
         )
-        PairView(
-          leftText: "Country:",
-          rightText: locationViewModel.currentPlacemark?.country ?? ""
+//        PairView(
+//          leftText: "Country:",
+//          rightText: locationViewModel.currentPlacemark?.country ?? ""
+//        )
+        PairView(leftText: locationViewModel.currentPlacemark?.subAdministrativeArea ?? "", rightText: locationViewModel.currentPlacemark?.administrativeArea ?? ""
         )
-        PairView(leftText: "State:", rightText: locationViewModel.currentPlacemark?.administrativeArea ?? ""
-        )
-        PairView(leftText: "County:", rightText: locationViewModel.currentPlacemark?.subAdministrativeArea ?? ""
-        )
+//        PairView(leftText: "County:", rightText: locationViewModel.currentPlacemark?.subAdministrativeArea ?? ""
+//        )
         PairView(leftText: "City:", rightText: locationViewModel.currentPlacemark?.locality ?? ""
         )
       }
@@ -55,4 +57,9 @@ struct TrackingView: View {
     locationViewModel.lastSeenLocation?.coordinate
   }
 }
+//struct TrackingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//      TrackingView()
+//    }
+//}
 

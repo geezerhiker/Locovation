@@ -20,4 +20,11 @@ struct PairView: View {
   }
 }
 
+struct ShortText: View {
+  let value: Double
+  var body: some View {
+    Text(String(String(value).prefix(8)))
+  }
+}
+
 

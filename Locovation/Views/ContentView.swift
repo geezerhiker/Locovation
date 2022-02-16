@@ -10,7 +10,7 @@ import CoreLocation
 
 struct ContentView: View {
   @StateObject var locationViewModel = LocationViewModel()
-  @StateObject var elevationViewModel = ElevationViewModel()
+//  @StateObject var elevationViewModel = ElevationViewModel()
   
   var body: some View {
     switch locationViewModel.authorizationStatus {
@@ -24,7 +24,7 @@ struct ContentView: View {
     case .authorizedAlways, .authorizedWhenInUse:
       TrackingView()
         .environmentObject(locationViewModel)
-        .environmentObject(elevationViewModel)
+//        .environmentObject(elevationViewModel)
     default:
       Text("Unexpected status")
     }

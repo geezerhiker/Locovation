@@ -9,38 +9,69 @@ import SwiftUI
 import CoreMotion
 
 struct ElevationStudyView: View {
-  
-  var elevation: ElevationViewModel
+  @EnvironmentObject var locationViewModel: LocationViewModel
+  //  @EnvironmentObject var elevationViewModel: ElevationViewModel
   
   var body: some View {
-    HStack {
-      Text("Relative").foregroundColor(.red)
-      VStack {
+    if locationViewModel.elevationIsReady {
+      let elevVM: ElevationViewModel? = locationViewModel.elevationViewModel
+      if elevVM == nil {
+        Spacer()
+        Text("WTF")
+        Spacer()
+      } else {
+        
+        Spacer()
         HStack {
-          Text("max")
-          Text(String(self.elevation.max))
+          Text("Relative").foregroundColor(.red)
+          VStack {
+            HStack {
+              Text("max")
+              ShortText(value: elevVM!.maximum)
+//              Text(elevVM!.maxString)
+            }
+            HStack {
+              Text("min")
+              ShortText(value: elevVM!.minimum)
+            }
+          }
+          Spacer()
+          VStack {
+            HStack {
+              Text("gain")
+              ShortText(value: elevVM!.gain)
+            }
+            HStack {
+              Text("loss")
+              ShortText(value:elevVM!.loss)
+            }
+            HStack {
+              Text("elevation")
+              ShortText(value:elevVM!.elevation)
+            }
+          }
+          Spacer()
+          VStack {
+            HStack {
+              Text("gain-loss")
+              ShortText(value: elevVM!.gain - elevVM!.loss)
+            }
+            HStack {
+              Text("count")
+              ShortText(value:Double(elevVM!.altimeterCount))
+            }
+          }
         }
-        HStack {
-          Text("min")
-          Text(String(elevation.min))
-        }
+        .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
+        Spacer()
       }
-      VStack {
-        HStack {
-          Text("gain")
-          Text(String(elevation.gain))
-        }
-        HStack {
-          Text("loss")
-          Text(String(elevation.loss))
-        }
-      }
-      HStack {
-        Text("gain-loss")
-        Text(String(elevation.gain - elevation.loss))
-      }
+    } else {
+      Spacer()
+      Text("Waiting for GPS elevation...")
+        .foregroundColor(.red)
+        .bold()
+      Spacer()
     }
-    .padding(.init(top: 20, leading: 0, bottom: 20, trailing: 0))
   }
 }
 
